@@ -7,6 +7,7 @@ Run: uvicorn main:app --host 0.0.0.0 --port 8000
 import asyncio
 import json
 import math
+import os
 import random
 import time
 from datetime import datetime, timezone
@@ -177,3 +178,10 @@ INDEX = Path(__file__).parent / "index.html"
 @app.get("/")
 async def root():
     return FileResponse(INDEX, media_type="text/html")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
