@@ -1260,6 +1260,69 @@
             </div>
         </section>
 
+        <section id="infrastructure" class="section" aria-labelledby="infra-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="kicker">5G Infrastructure</span>
+                    <h2 id="infra-title">Deep technical insights.</h2>
+                    <p class="section-copy">Monitor active edge compute, mmWave utilization, and device handover success rates in real time.</p>
+                </div>
+
+                <div class="overview-grid">
+                    <article class="metric-card depth-card reveal">
+                        <div class="metric-head">
+                            <span>Edge Compute Load</span>
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
+                                    <path d="M7 2v20M17 2v20M2 7h20M2 17h20" stroke="currentColor" stroke-width="1.8"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="metric-value"><span id="valEdgeLoad" data-count="65">0</span><span class="metric-unit">%</span></div>
+                        <div class="metric-foot">
+                            <span>MEC resource utilization</span>
+                            <span class="status-badge">Stable</span>
+                        </div>
+                    </article>
+
+                    <article class="metric-card depth-card reveal">
+                        <div class="metric-head">
+                            <span>Handover Success</span>
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 7h8a4 4 0 0 1 0 8H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M11 11l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="metric-value"><span id="valHandover" data-count="99.8">0</span><span class="metric-unit">%</span></div>
+                        <div class="metric-foot">
+                            <span>seamless cell transitions</span>
+                            <span class="status-badge">Excellent</span>
+                        </div>
+                    </article>
+
+                    <article class="metric-card depth-card reveal">
+                        <div class="metric-head">
+                            <span>Active mmWave Beams</span>
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.8"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="metric-value"><span id="valMmwave" data-count="185">0</span><span class="metric-unit">beams</span></div>
+                        <div class="metric-foot">
+                            <span>high-capacity sectors</span>
+                            <span class="status-badge">Active</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="crowd" class="section" aria-labelledby="crowd-title">
             <div class="container">
                 <div class="section-heading reveal">
@@ -1649,6 +1712,14 @@
                     });
                 }
 
+                // 5G Infrastructure
+                const valEdgeLoad = document.getElementById('valEdgeLoad');
+                if (valEdgeLoad && d.edge_compute_load_pct) valEdgeLoad.textContent = d.edge_compute_load_pct;
+                const valHandover = document.getElementById('valHandover');
+                if (valHandover && d.handover_success_pct) valHandover.textContent = d.handover_success_pct.toFixed(1);
+                const valMmwave = document.getElementById('valMmwave');
+                if (valMmwave && d.active_mmwave_beams) valMmwave.textContent = d.active_mmwave_beams;
+
                 // Fan experience cards
                 const valStreaming = document.getElementById('valStreaming');
                 if (valStreaming) valStreaming.textContent = (d.bandwidth_gbps * 1.6).toFixed(1);
@@ -1729,6 +1800,9 @@
                     ),
                     ar_vr_users: Math.round(3200 + 400 * Math.sin(t * 0.03)),
                     merch_sales: Math.round(234000 + t * 2),
+                    edge_compute_load_pct: Math.round(65 + 10 * Math.sin(t * 0.1)),
+                    handover_success_pct: +(99.5 + 0.4 * Math.sin(t * 0.05)).toFixed(1),
+                    active_mmwave_beams: Math.round(180 + 20 * Math.sin(t * 0.08)),
                 };
             }
 

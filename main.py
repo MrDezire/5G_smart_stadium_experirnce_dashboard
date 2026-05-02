@@ -35,6 +35,9 @@ state = {
     "alerts": ["Gate 3 surge detected", "Camera 7 offline"],
     "ar_vr_users": 3240,
     "merch_sales": 234810,
+    "edge_compute_load_pct": 65,
+    "handover_success_pct": 99.8,
+    "active_mmwave_beams": 185,
     "timestamp": "",
 }
 
@@ -105,6 +108,11 @@ def evolve_state():
 
     # Merch sales increment
     state["merch_sales"] += random.randint(50, 500)
+
+    # 5G extra metrics
+    state["edge_compute_load_pct"] = max(40, min(95, state["edge_compute_load_pct"] + random.randint(-5, 5)))
+    state["handover_success_pct"] = round(max(98.5, min(99.9, state["handover_success_pct"] + random.uniform(-0.1, 0.1))), 2)
+    state["active_mmwave_beams"] = max(120, min(250, state["active_mmwave_beams"] + random.randint(-8, 8)))
 
     state["timestamp"] = datetime.now(timezone.utc).isoformat()
 
