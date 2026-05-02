@@ -183,7 +183,10 @@
             position: absolute;
             inset: 0;
             z-index: -2;
-            opacity: 0.9;
+            opacity: 0.6;
+            background-image: url('soccer-stadium-night.jpg');
+            background-size: cover;
+            background-position: center 30%;
             transform: translate3d(0, var(--hero-shift, 0px), -80px) scale(1.08);
             transition: transform 90ms linear;
         }
@@ -1098,32 +1101,7 @@
 
     <main id="top" class="page">
         <section class="section hero" aria-labelledby="hero-title">
-            <div class="hero-bg" aria-hidden="true">
-                <svg class="stadium-art" viewBox="0 0 1200 720" fill="none">
-                    <ellipse cx="600" cy="390" rx="500" ry="210" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
-                    <ellipse cx="600" cy="390" rx="410" ry="168" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
-                    <ellipse cx="600" cy="390" rx="310" ry="124" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
-                    <ellipse cx="600" cy="393" rx="180" ry="68" fill="rgba(255,255,255,0.025)"
-                        stroke="rgba(255,255,255,0.12)" stroke-width="1" />
-                    <path d="M172 372c90-132 232-198 428-198s338 66 428 198" stroke="rgba(59,130,246,0.20)"
-                        stroke-width="1" />
-                    <path d="M250 342c78-82 195-123 350-123s272 41 350 123" stroke="rgba(139,92,246,0.15)"
-                        stroke-width="1" />
-                    <g opacity="0.22">
-                        <path d="M132 404h936" stroke="rgba(255,255,255,0.18)" stroke-width="1" />
-                        <path d="M180 454h840" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
-                        <path d="M242 504h716" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
-                    </g>
-                    <g opacity="0.16">
-                        <path d="M270 236v300" stroke="white" />
-                        <path d="M394 198v386" stroke="white" />
-                        <path d="M518 180v422" stroke="white" />
-                        <path d="M642 180v422" stroke="white" />
-                        <path d="M766 198v386" stroke="white" />
-                        <path d="M890 236v300" stroke="white" />
-                    </g>
-                </svg>
-            </div>
+            <div class="hero-bg" aria-hidden="true"></div>
 
             <div class="container hero-grid">
                 <div class="hero-copy reveal">
